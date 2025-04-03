@@ -28,17 +28,18 @@ rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
 cd /home/ec2-user/myapp
 
 # Update npm
-# npm install -g npm@latest
+npm install
 
+npm ci
 
-npm cache clean --force
+# npm cache clean --force
 
-if [ -f package-lock.json ]; then
-    npm ci
-else
-    echo "Installing npm dependencies in $(pwd)..."
-    npm install
-fi
+# if [ -f package-lock.json ]; then
+#     npm ci
+# else
+#     echo "Installing npm dependencies in $(pwd)..."
+#     npm install
+# fi
 # Install nodemon globally with specific version
 # echo "Installing nodemon globally..."
 # npm install -g nodemon@latest
@@ -54,4 +55,4 @@ fi
 # echo "Setting proper permissions..."
 # chmod -R 755 /home/ec2-user/myapp/node_modules
 
-# echo "AfterInstall script completed successfully."
+echo "AfterInstall script completed successfully."
