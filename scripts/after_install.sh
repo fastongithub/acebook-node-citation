@@ -28,9 +28,9 @@ rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
 cd /home/ec2-user/myapp
 
 # Update npm
-npm install
+npm install -g npm@latest
 
-npm ci
+# npm ci
 
 # npm cache clean --force
 
