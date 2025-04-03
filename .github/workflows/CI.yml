@@ -36,9 +36,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
     steps:
-    - uses: actions/checkout@v4
-    - name: Run Tests
-      run: npm test
+      - uses: actions/checkout@v4
+      - name: Run Tests
+        run: | 
+          npm run test:unit \
+          npm run test:integration
   
   trigger_deploy:
     runs-on: ubuntu-latest
