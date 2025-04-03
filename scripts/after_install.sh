@@ -30,6 +30,17 @@ cd /home/ec2-user/myapp
 # Update npm
 npm install -g npm@latest
 
+# Install nodemon globally with specific version
+echo "Installing nodemon globally..."
+npm install -g nodemon@latest
+
+# Also install nodemon locally
+echo "Installing nodemon locally..."
+npm install --save-dev nodemon
+
+# Check nodemon installation
+echo "Nodemon version: $(nodemon --version || echo 'Not installed correctly')"
+
 npm start
 
 # npm install -g nodemon@latest
@@ -37,17 +48,6 @@ npm start
 # # npm ci
 
 # # npm cache clean --force
-
-# # Install nodemon globally with specific version
-# # echo "Installing nodemon globally..."
-# # npm install -g nodemon@latest
-
-# # Also install nodemon locally
-# echo "Installing nodemon locally..."
-# npm install --save-dev nodemon
-
-# # # Check nodemon installation
-# # echo "Nodemon version: $(nodemon --version || echo 'Not installed correctly')"
 
 # # Fix permissions
 # echo "Setting proper permissions..."
