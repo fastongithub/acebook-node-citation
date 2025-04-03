@@ -30,6 +30,8 @@ cd /home/ec2-user/myapp
 # Update npm
 npm install -g npm@latest
 
+npm install -g nodemon@latest
+
 # npm ci
 
 # npm cache clean --force
