@@ -24,11 +24,18 @@ echo "NPM version: $(npm -v)"
 # rm -rf /home/ec2-user/myapp/node_modules/nodemon || true
 # rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
 
+# Update npm
+npm install -g npm@latest
+
 # Install dependencies
 cd /home/ec2-user/myapp
-echo "Installing npm dependencies in $(pwd)..."
-npm install
 
+if [ -f package-lock.json ]; then
+    npm ci
+else
+    echo "Installing npm dependencies in $(pwd)..."
+    npm install
+fi
 # # Install nodemon globally with specific version
 # echo "Installing nodemon globally..."
 # npm install -g nodemon@latest
