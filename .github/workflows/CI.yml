@@ -16,12 +16,6 @@ jobs:
         node-version: 23.x
         cache: 'npm'
     
-    # - name: Install eslint
-    #   run: npm init @eslint/config@latest
-    
-    # - name: Install jest
-    #   run: npm install --save-dev jest
-    
     - name: Start MongoDB
       uses: supercharge/mongodb-github-action@1.12.0
       with:
@@ -36,7 +30,7 @@ jobs:
       run: |
         npm run build --if-present \
         npm run start:test & \
-        sleep 5
+        sleep 5 \
         npm run test
   
   # test:
