@@ -30,10 +30,10 @@ npm install -g npm@latest
 # Install dependencies
 cd /home/ec2-user/myapp
 
+npm cache clean --force
+
 if [ -f package-lock.json ]; then
-    # npm ci
-    npm install -g yarn
-    yarn install
+    npm ci
 else
     echo "Installing npm dependencies in $(pwd)..."
     npm install
