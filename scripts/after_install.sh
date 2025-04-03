@@ -24,11 +24,12 @@ echo "NPM version: $(npm -v)"
 # rm -rf /home/ec2-user/myapp/node_modules/nodemon || true
 # rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
 
+# Install dependencies
+cd /home/ec2-user/myapp
+
 # Update npm
 npm install -g npm@latest
 
-# # Install dependencies
-# cd /home/ec2-user/myapp
 
 # npm cache clean --force
 
