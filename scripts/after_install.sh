@@ -53,8 +53,8 @@ npm install -g nodemon@latest
 # # Check nodemon installation
 # echo "Nodemon version: $(nodemon --version || echo 'Not installed correctly')"
 
-# # Fix permissions
-# echo "Setting proper permissions..."
-# chmod -R 755 /home/ec2-user/myapp/node_modules
+# Fix permissions
+echo "Setting proper permissions..."
+chmod -R 755 /home/ec2-user/myapp/node_modules
 
 echo "AfterInstall script completed successfully."
