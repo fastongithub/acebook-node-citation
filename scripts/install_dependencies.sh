@@ -4,31 +4,29 @@ set -e
 echo "Updating Packages"
 sudo yum update -y
 
-echo "Checking if Git is installed..."
-if ! command -v git &>/dev/null; then
-    echo "Installing Git..."
-    sudo yum install -y git
-else
-    echo "Git is already installed."
+# Completely remove the app directory to start fresh
+APP_DIR="/home/ec2-user/myapp"
+if [ -d "$APP_DIR" ]; then
+    echo "Removing existing app directory for fresh installation..."
+    sudo rm -rf "$APP_DIR"
 fi
 
-echo "Checking for Homebrew Installation..."
-if ! command -v brew &>/dev/null; then
-    echo "Installing Homebrew as ec2-user..."
-    sudo -u ec2-user /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Create fresh directory
+mkdir -p "$APP_DIR"
+echo "Created fresh $APP_DIR directory."
+
+
+# echo "Checking for Homebrew Installation..."
+# if ! command -v brew &>/dev/null; then
+#     echo "Installing Homebrew as ec2-user..."
+#     sudo -u ec2-user /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     
-    # Add Homebrew to PATH for the current session
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/ec2-user/.bashrc
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-else
-    echo "Homebrew is already installed."
-fi
-
-# **Explicitly set Homebrew in PATH**
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# echo "Installing NVM via Homebrew"
-# brew install nvm
+#     # Add Homebrew to PATH for the current session
+#     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/ec2-user/.bashrc
+#     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# else
+#     echo "Homebrew is already installed."
+# fi
 
 # Install NVM if not installed
 if [ ! -d "/home/ec2-user/.nvm" ]; then
