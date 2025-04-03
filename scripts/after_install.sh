@@ -31,27 +31,27 @@ cd /home/ec2-user/myapp
 npm install -g npm@latest
 
 
-# npm cache clean --force
+npm cache clean --force
 
-# if [ -f package-lock.json ]; then
-#     npm ci
-# else
-#     echo "Installing npm dependencies in $(pwd)..."
-#     npm install
-# fi
-# # # Install nodemon globally with specific version
-# # echo "Installing nodemon globally..."
-# # npm install -g nodemon@latest
+if [ -f package-lock.json ]; then
+    npm ci
+else
+    echo "Installing npm dependencies in $(pwd)..."
+    npm install
+fi
+# Install nodemon globally with specific version
+echo "Installing nodemon globally..."
+npm install -g nodemon@latest
 
-# # # Also install nodemon locally
-# # echo "Installing nodemon locally..."
-# # npm install --save-dev nodemon
+# Also install nodemon locally
+echo "Installing nodemon locally..."
+npm install --save-dev nodemon
 
-# # # Check nodemon installation
-# # echo "Nodemon version: $(nodemon --version || echo 'Not installed correctly')"
+# Check nodemon installation
+echo "Nodemon version: $(nodemon --version || echo 'Not installed correctly')"
 
-# # # Fix permissions
-# # echo "Setting proper permissions..."
-# # chmod -R 755 /home/ec2-user/myapp/node_modules
+# Fix permissions
+echo "Setting proper permissions..."
+chmod -R 755 /home/ec2-user/myapp/node_modules
 
-# echo "AfterInstall script completed successfully."
+echo "AfterInstall script completed successfully."
