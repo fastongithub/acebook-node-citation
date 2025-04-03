@@ -18,17 +18,17 @@ nvm alias default 23
 echo "Node version: $(node -v)"
 echo "NPM version: $(npm -v)"
 
-# # First remove any problematic nodemon installations
-# echo "Cleaning any existing nodemon installations..."
-# npm uninstall -g nodemon || true
-# rm -rf /home/ec2-user/myapp/node_modules/nodemon || true
-# rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
+# First remove any problematic nodemon installations
+echo "Cleaning any existing nodemon installations..."
+npm uninstall -g nodemon || true
+rm -rf /home/ec2-user/myapp/node_modules/nodemon || true
+rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
 
 # Install dependencies
 cd /home/ec2-user/myapp
 
 # Update npm
-npm install -g npm@latest
+# npm install -g npm@latest
 
 
 npm cache clean --force
@@ -40,18 +40,18 @@ else
     npm install
 fi
 # Install nodemon globally with specific version
-echo "Installing nodemon globally..."
-npm install -g nodemon@latest
+# echo "Installing nodemon globally..."
+# npm install -g nodemon@latest
 
-# Also install nodemon locally
-echo "Installing nodemon locally..."
-npm install --save-dev nodemon
+# # Also install nodemon locally
+# echo "Installing nodemon locally..."
+# npm install --save-dev nodemon
 
-# Check nodemon installation
-echo "Nodemon version: $(nodemon --version || echo 'Not installed correctly')"
+# # Check nodemon installation
+# echo "Nodemon version: $(nodemon --version || echo 'Not installed correctly')"
 
-# Fix permissions
-echo "Setting proper permissions..."
-chmod -R 755 /home/ec2-user/myapp/node_modules
+# # Fix permissions
+# echo "Setting proper permissions..."
+# chmod -R 755 /home/ec2-user/myapp/node_modules
 
-echo "AfterInstall script completed successfully."
+# echo "AfterInstall script completed successfully."
