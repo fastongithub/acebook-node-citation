@@ -33,7 +33,7 @@ jobs:
         run: |
           aws deploy push \
           --application-name acebook-citation-app \
-          --region eu-west-2
+          --region eu-west-2 \
           --description "This is a revision for the application acebook_app" \
           --ignore-hidden-files \
           --s3-location s3://acebook-node-citation-bucket/app.zip \
