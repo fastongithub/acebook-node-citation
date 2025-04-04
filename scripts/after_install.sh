@@ -20,19 +20,19 @@ echo "NPM version: $(npm -v)"
 
 # First remove any problematic nodemon installations
 echo "Cleaning any existing nodemon installations..."
-npm uninstall -g nodemon || true
-rm -rf /home/ec2-user/myapp/node_modules/nodemon || true
-rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
+sudo npm uninstall -g nodemon || true
+sudo rm -rf /home/ec2-user/myapp/node_modules/nodemon || true
+sudo rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
 
 # Install dependencies
 cd /home/ec2-user/myapp
 
 # yum installs
-yum install -y nodejs
-yum install -y npm
+sudo yum install -y nodejs
+sudo yum install -y npm
 
 # Update npm
-npm ci
+sudo npm ci
 #npm install -g npm@latest
 
 # Install nodemon globally with specific version
