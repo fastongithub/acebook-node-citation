@@ -3,19 +3,19 @@ set -e
 
 echo "Starting AfterInstall script..."
 
-# Load NVM for the ec2-user
-export NVM_DIR="/home/ec2-user/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# # Load NVM for the ec2-user
+# export NVM_DIR="/home/ec2-user/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Install Node.js 23
-echo "Installing Node.js 23..."
-nvm install 23
-nvm use 23
-nvm alias default 23
+# # Install Node.js 23
+# echo "Installing Node.js 23..."
+# nvm install 23
+# nvm use 23
+# nvm alias default 23
 
 # Verify node is available
-echo "Node version: $(node -v)"
+# echo "Node version: $(node -v)"
 echo "NPM version: $(npm -v)"
 
 # First remove any problematic nodemon installations
@@ -27,8 +27,13 @@ rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
 # Install dependencies
 cd /home/ec2-user/myapp
 
+# yum installs
+yum install -y nodejs
+yum install -y npm
+
 # Update npm
-npm install -g npm@latest
+npm ci
+#npm install -g npm@latest
 
 # Install nodemon globally with specific version
 echo "Installing nodemon globally..."
