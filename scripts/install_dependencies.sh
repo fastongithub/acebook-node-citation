@@ -24,9 +24,6 @@ fi
 # Install dependencies
 cd /home/ec2-user/myapp
 
-# Update npm
-npm install -g npm@latest
-
 # # Make sure scripts are executable
 # chmod +x /home/ec2-user/myapp/scripts/*.sh || echo "No scripts to make executable yet"
 
