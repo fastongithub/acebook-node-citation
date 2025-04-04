@@ -28,12 +28,12 @@ echo "NPM version: $(npm -v)"
 cd /home/ec2-user/myapp
 
 # yum installs
-sudo yum install -y nodejs
-sudo yum install -y npm
+yum install -y nodejs
+yum install -y npm
 
 # Update npm
-sudo npm cache clean --force
-# sudo -E npm ci
+npm cache clean --force
+npm ci
 #npm install -g npm@latest
 
 # Install nodemon globally with specific version
