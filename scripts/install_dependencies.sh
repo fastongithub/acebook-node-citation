@@ -15,27 +15,20 @@ fi
 mkdir -p "$APP_DIR"
 echo "Created fresh $APP_DIR directory."
 
-
-# echo "Checking for Homebrew Installation..."
-# if ! command -v brew &>/dev/null; then
-#     echo "Installing Homebrew as ec2-user..."
-#     sudo -u ec2-user /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    
-#     # Add Homebrew to PATH for the current session
-#     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/ec2-user/.bashrc
-#     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# else
-#     echo "Homebrew is already installed."
+# # Install NVM if not installed
+# if [ ! -d "/home/ec2-user/.nvm" ]; then
+#     echo "Installing NVM..."
+#     sudo -u ec2-user bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash'
 # fi
 
-# Install NVM if not installed
-if [ ! -d "/home/ec2-user/.nvm" ]; then
-    echo "Installing NVM..."
-    sudo -u ec2-user bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash'
-fi
+# Install dependencies
+cd /home/ec2-user/myapp
 
-# Make sure scripts are executable
-chmod +x /home/ec2-user/myapp/scripts/*.sh || echo "No scripts to make executable yet"
+# Update npm
+npm install -g npm@latest
+
+# # Make sure scripts are executable
+# chmod +x /home/ec2-user/myapp/scripts/*.sh || echo "No scripts to make executable yet"
 
 # Install MongoDB
 echo "[mongodb-org-8.0]
