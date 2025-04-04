@@ -33,15 +33,12 @@ sudo yum install -y npm
 
 # Update npm
 sudo npm cache clean --force
-sudo npm ci
+sudo -E npm ci
 #npm install -g npm@latest
 
 # Install nodemon globally with specific version
 # echo "Installing nodemon globally..."
 # npm install -g nodemon@latest
-
-# npm ci
-
 
 # Install nodemon globally with specific version
 # echo "Installing nodemon globally..."
