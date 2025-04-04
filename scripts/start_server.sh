@@ -1,5 +1,7 @@
-# #!/bin/bash
-# cd /home/ec2-user/myapp
+#!/bin/bash
+cd /home/ec2-user/myapp
 # npm run
 
-# npm start
+
+npm start
+sudo systemctl start mongod

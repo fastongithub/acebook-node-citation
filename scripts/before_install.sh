@@ -23,7 +23,7 @@ echo "Created fresh $APP_DIR directory."
 
 # Install Node.js
 curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
-yum install -y nodejs
+yum install -y nodejs 
 
 # Install dependencies
 cd /home/ec2-user/myapp
@@ -47,7 +47,7 @@ enabled=1
 gpgkey=https://pgp.mongodb.com/server-8.0.asc" | sudo tee /etc/yum.repos.d/mongodb-org-8.0.repo
 
 sudo yum install -y mongodb-org --enablerepo=mongodb-org-8.0
-sudo systemctl start mongod
-npm start
+# sudo systemctl start mongod
+# npm start
 
 echo "BeforeInstall script completed successfully."
