@@ -32,8 +32,8 @@ yum install -y nodejs
 yum install -y npm
 
 # Update npm
-npm cache clean --force
-npm ci
+# npm cache clean --force
+# npm ci
 #npm install -g npm@latest
 
 # Install nodemon globally with specific version
