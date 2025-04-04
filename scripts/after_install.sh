@@ -34,8 +34,6 @@ npm install -g npm@latest
 echo "Installing nodemon globally..."
 # npm install -g nodemon@latest
 
-npm run
-
 # npm ci
 
 # npm cache clean --force
