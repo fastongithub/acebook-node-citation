@@ -1,7 +1,5 @@
 #!/bin/bash
 cd /home/ec2-user/myapp
-npm install
+sudo npm run
 
-npm run
-
-npm start
+sudo npm start
