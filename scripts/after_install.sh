@@ -32,7 +32,7 @@ npm install -g npm@latest
 
 # Install nodemon globally with specific version
 echo "Installing nodemon globally..."
-npm install -g nodemon@latest
+# npm install -g nodemon@latest
 
 npm run
 
