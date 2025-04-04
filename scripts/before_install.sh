@@ -22,18 +22,29 @@ echo "Created fresh $APP_DIR directory."
 # fi
 
 # Install Node.js
-curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
-yum install -y nodejs 
+# curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
+# yum install -y nodejs 
 
 # Install dependencies
 cd /home/ec2-user/myapp
 
+# Load NVM for the ec2-user
+export NVM_DIR="/home/ec2-user/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Install Node.js 23
+echo "Installing Node.js 23..."
+nvm install 23
+nvm use 23
+nvm alias default 23
+
 # Update npm
 npm install -g npm@latest
 
-npm cache clean --force
-rm -rf node_modules package-lock.json
-npm install
+# npm cache clean --force
+# rm -rf node_modules package-lock.json
+# npm install
 
 # # Make sure scripts are executable
 # chmod +x /home/ec2-user/myapp/scripts/*.sh || echo "No scripts to make executable yet"
