@@ -19,10 +19,10 @@ echo "Starting AfterInstall script..."
 echo "NPM version: $(npm -v)"
 
 # First remove any problematic nodemon installations
-echo "Cleaning any existing nodemon installations..."
-sudo npm uninstall -g nodemon || true
-sudo rm -rf /home/ec2-user/myapp/node_modules/nodemon || true
-sudo rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
+# echo "Cleaning any existing nodemon installations..."
+# sudo npm uninstall -g nodemon || true
+# sudo rm -rf /home/ec2-user/myapp/node_modules/nodemon || true
+# sudo rm -f /home/ec2-user/myapp/node_modules/.bin/nodemon || true
 
 # Install dependencies
 cd /home/ec2-user/myapp
