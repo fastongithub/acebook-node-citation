@@ -15,11 +15,11 @@ fi
 mkdir -p "$APP_DIR"
 echo "Created fresh $APP_DIR directory."
 
-# # Install NVM if not installed
-# if [ ! -d "/home/ec2-user/.nvm" ]; then
-#     echo "Installing NVM..."
-#     sudo -u ec2-user bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash'
-# fi
+# Install NVM if not installed
+if [ ! -d "/home/ec2-user/.nvm" ]; then
+    echo "Installing NVM..."
+    sudo -u ec2-user bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash'
+fi
 
 # Install dependencies
 cd /home/ec2-user/myapp
