@@ -26,7 +26,7 @@ echo "Created fresh $APP_DIR directory."
 # yum install -y nodejs 
 
 # Install dependencies
-cd /home/ec2-user/myapp
+# cd /home/ec2-user/myapp
 
 # Load NVM for the ec2-user
 export NVM_DIR="/home/ec2-user/.nvm"
