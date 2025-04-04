@@ -28,8 +28,8 @@ echo "NPM version: $(npm -v)"
 cd /home/ec2-user/myapp
 
 # yum installs
-yum install -y nodejs
-yum install -y npm
+# yum install -y nodejs
+# yum install -y npm
 
 # Update npm
 # npm cache clean --force

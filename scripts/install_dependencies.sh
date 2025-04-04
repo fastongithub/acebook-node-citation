@@ -15,14 +15,25 @@ fi
 mkdir -p "$APP_DIR"
 echo "Created fresh $APP_DIR directory."
 
-# Install NVM if not installed
-if [ ! -d "/home/ec2-user/.nvm" ]; then
-    echo "Installing NVM..."
-    sudo -u ec2-user bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash'
-fi
+# # Install NVM if not installed
+# if [ ! -d "/home/ec2-user/.nvm" ]; then
+#     echo "Installing NVM..."
+#     sudo -u ec2-user bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash'
+# fi
+
+# Install Node.js
+curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
+yum install -y nodejs
 
 # Install dependencies
 cd /home/ec2-user/myapp
+
+# Update npm
+npm install -g npm@latest
+
+npm cache clean --force
+rm -rf node_modules package-lock.json
+npm install
 
 # # Make sure scripts are executable
 # chmod +x /home/ec2-user/myapp/scripts/*.sh || echo "No scripts to make executable yet"
@@ -37,5 +48,6 @@ gpgkey=https://pgp.mongodb.com/server-8.0.asc" | sudo tee /etc/yum.repos.d/mongo
 
 sudo yum install -y mongodb-org --enablerepo=mongodb-org-8.0
 sudo systemctl start mongod
+npm start
 
 echo "BeforeInstall script completed successfully."
